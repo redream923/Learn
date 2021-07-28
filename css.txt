@@ -1,0 +1,221 @@
+CSS 概述
+CSS 指层叠样式表 (Cascading Style Sheets)
+样式定义如何显示 HTML 元素
+样式通常存储在样式表中
+把样式添加到 HTML 中，是为了解决内容与表现分离的问题
+外部样式表可以极大提高工作效率
+外部样式表通常存储在 CSS 文件中
+多个样式定义可层叠为一
+
+2.选择器
+在 CSS 中，选择器是一种模式，用于选择需要添加样式的元素。
+1)类选择器
+    .class名{
+        属性1:属性值,
+        属性2:属性值
+    }
+2)id选择器
+    #id名{属性:属性值}
+3)所有元素选择器
+    *{属性:属性值}
+4)元素选择器
+    元素名{属性:属性值}
+5)后代选择器
+    元素1 元素2{属性:属性值}
+    选取元素1中所有的元素2
+6)子元素选择器
+    元素1>元素2{属性:属性值}
+    选取父元素是元素1的所有元素2
+7)相邻元素选择器
+    元素1+元素2{属性:属性值}
+    选取元素1后面相邻的所有元素2
+8)属性选择器
+    [属性名]{属性:属性值}     选择所有含有指定属性的元素
+    [属性名=值]{属性:属性值}     选择所有含有指定属性=指定值的元素
+
+9)伪类选择器
+:link       可以设置未被访问的样式
+:visited    可以设置访问后的样式
+:active     可以设置激活的样式
+:hover      可以设置鼠标悬停的样式.
+
+注意:
+    :link,:visited,:active一般用于超链接
+    :hover可以用于大部分元素.
+
+3.引入方式
+1)内部引用
+    在head标签内创建style标签
+2)行内引用
+    在元素上添加style属性
+3)外部引用
+    先创建1个css文件,然后通过link引入外部的css文件.
+
+4.常见样式属性
+4.1字体属性
+    1)font-family:设置字体
+        font-family:字体1,字体2...
+    2)font-size:设置字体大小
+        font-size:关键字/像素值
+    3)font-weight:设置字体粗细
+        font-weight:关键字/值;
+            关键字:bold(粗体),lighter(细体)
+            值:100~900,其中700=bold
+    4)font-style:字体样式
+        font-style: italic:设置斜体
+
+4.2文本属性
+    1)color:文本字体颜色
+        属性值:关键字/#6位16进制
+    2)text-align:文本水平对其方式
+        属性值:left/right/center
+        注意:
+            该属性不光适用于文本,还适用于图片
+            需要在需要对齐的元素的父元素上设置该属性
+    3)text-decoration:文本装饰
+        属性值:
+            none    默认.定义标准的文本(该值经常用于去除超链接的下划线)
+            underline   下划线
+            overline    顶划线
+            line-through    删除线.
+    4)text_indent:文本缩进
+        属性值:像素值
+    5)text_transform:文本大小写转换
+        属性值:
+            capitalize:首字符大写
+            uppercase:转成大写
+            lowercase:转成小写
+    6)letter_spacing:字符间距
+    7)word_spacing:单词之间的间距
+    8)line_height:设置行高
+        一般通过行高设置文本垂直居中
+        行高的值为该元素坐在父元素的高度.
+
+4.3 边框属性
+    边框有3个属性:width,style,color
+    border_width:边框宽度
+    border_style:边框样式
+    border_color:边框颜色
+
+注意:设置边框属性需要同时设置上面的3个属性.
+边框属性设置简写
+border:宽度 样式 颜色;
+
+局部样式
+border-top:宽度 样式 颜色;
+border-right:宽度 样式 颜色;
+border-bottom:宽度 样式 颜色;
+border-left:宽度 样式 颜色;
+
+4.4 背景属性
+1) background-color 设置背景色
+2) background-image 设置背景图片
+    属性值:url(图片路径);
+3) background-repeat 设置背景图片的平铺方式
+    repeat 默认,按照x,y方向进行平铺
+    repeat-x 按照x方向进行平铺
+    repeat-y 按照y方向进行平铺
+    no-repeat 不平铺.
+4)background-position 设置背景图片的位置
+    属性值:关键字/像素值
+    关键字
+        top left
+        top center
+        top right
+        center left
+        center center
+        center right
+        bottom left
+        bottom center
+        bottom right
+5) background-attachment 设置图片是否滚动
+    属性值:
+        scroll 默认值.背景图像会随着其余部分的滚动而移动
+        fixed 当页面的其余部分滚动时，背景图像不会移动。
+
+4.5 表格属性
+1) border-collapse 是否合并边框
+    默认不合并,可以通过设置collapse合并边框.
+2) border-spacing 单元格边框间距
+    属性值
+        如果只有1个值,设置水平和垂直间距都为该值
+        如果有2个值,第1个值设置水平间距,第二个值设置垂直间距.
+3) caption-side 标题位置
+    默认在上面,可以通过bottom将标题放在下面.
+
+4.6 列表属性
+    list-style-type 设置列表项符号
+    1)有序列表
+        decimal: 默认,数字
+        lower-roman :小写罗马数字
+        upper-roman :大写罗马数字
+        lower-alpha :小写英文字母
+        upper-alpha :大写英文字母
+    2)无序列表
+        disc: 默认,实心圆
+        circle:空心圆
+        square:实心正方形
+    3)没有列表项符号
+        none
+
+4.7 定位样式
+1)cursor 设置光标显示形状
+    pointer 指针
+
+2)display 设置元素的显示方式
+    属性值
+        block 次元素将显示为块元素
+        inline 默认. 次元素会被显示为内联元素
+        inline-block 元素转换成块元素,但是以行内元素方式显示
+        none 不显示元素
+
+5)浮动
+1)文档流
+    元素在页面中出现的先后次序
+2)正常文档流
+    可以将浏览器窗口自上而下分成混多行,块元素独占一行,多个行内元素按照从左到右次序公用一行
+    按照上面规则排序的文档流为正常文档流
+3)脱离正常文档流
+    通过css控制HTML的文档结构,使得代码次序和显示位置或方式不一样.
+4)如何脱离正常文档流
+    采用float属性:
+        left:左浮动
+        right:右浮动
+5)清除浮动
+    clear
+        left:清除左浮动
+        right:清除右浮动
+        both:清除任意浮动
+
+6.盒子模型
+所有的元素都可以看成是一个盒子,并且在页面中占据一定的空间
+盒子包含四个属性
+1) border 边框
+2) margin 外边距(元素和元素之间的间距)
+    margin-top,margin-right,margin-bottom,margin-left
+    上面4个属性可以简写成margin
+        如果1个值,上右下左边距都是该值.(auto居中效果)
+        如果2个值,第1个值为上下边距,第2个边距为左右边距
+        如果4个值,分别对应上右下左边距.
+3)content 内容(元素中的内容)
+4)padding 内边距(边框和内容之前的间距)
+    padding-top,padding-right,padding-bottom,padding-left
+    padding
+
+7.元素定位
+通过position属性可以设置元素的定位方式,结合top,right,bottom,left可以设置元素的位置.
+分为:
+1) absolute:绝对定位
+    相对于页面固定.
+2) relative:相对定位
+    相对于当前元素之前位置的定位.
+3) fixed固定定位
+    相对于窗口固定.
+4) static静态定位(默认)
+
+tips:
+    位置的确定可以选择性的使用top,right,bottom,left
+
+
+
+
