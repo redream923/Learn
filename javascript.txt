@@ -1,0 +1,203 @@
+1、JavaScript简介
+JavaScript 是脚本语言
+JavaScript 是弱类型语言（定义变量时不需要声明数据类型）
+JavaScript 是一种轻量级的编程语言。
+JavaScript 是可插入 HTML 页面的编程代码。
+JavaScript 插入 HTML 页面后，可由所有的现代浏览器执行。
+
+2、JavaScript的分类
+1）ECMAScript:核心，主要包含基础语法
+2）BOM:浏览器对象模型
+3）DOM:文档对象模型
+
+3、引入方式
+1）外嵌式
+    <script src="外部js文件路径"></script>
+2）内嵌式
+    <script>js代码</script>
+
+4、基础语法
+4.1 变量
+命名规则
+    由字母、数字、_组成
+    不能以数字开头
+    不可以是js的关键字
+    区分大小写
+变量的声明
+    var 变量名;(变量类型可以是任意类型)
+    变量名;(变量类型为Undefined)
+变量的赋值
+    var 变量名 = 值;
+    注意：同一个变量名可以存储不同类型的值
+变量的类型
+    数值Number
+    字符串String
+    布尔Boolean
+    对象Object
+    函数Function
+    未定义Undefined
+    数值Array
+    空值Null
+
+4.2 运算符
+1）算术运算符
+    +(也可以用作连接符)，-,*，/(不是整除),%
+2）赋值运算符
+    =,+=，-=,*=，/=，%=
+3）比较运算符
+    >、>=、<、<=、!=、==（等于）、===（全等于）
+    ==:只用来比较值
+    ===：比较值和类型
+4）逻辑运算符
+    &&、||、！
+5）条件运算符
+    条件?表达式1:表达式2;
+
+4.3 数组
+方式1
+    var 数组名 = [元素1,...];
+方式2
+    var 数组名 = new Array(元素1,...);
+注意：JS中的数组长度是可变的
+
+4.4 函数
+定义方式1
+    function 函数名(参数列表){
+        函数体;
+    }
+定义方式2
+    var 函数名 = function(参数列表){
+         函数体;
+    }
+
+4.5 自定义对象
+方式1：
+    var 对象名 = new Object();//对象初始化
+    对象名.属性名 = 属性值;//对象属性初始化
+    对象名.函数名 = function(参数列表){}  //对象函数初始化
+
+方式2：
+    var 对象名 = {
+        属性名:属性值,
+        函数名:function(参数列表){}
+    }
+
+4.6 隐形参数
+arguments:是数组，里面包含了实参所有值
+
+5、BOM对象
+5.1 Window 对象
+Window 对象表示浏览器中打开的窗口。、
+常用属性
+    document:获取Document对象
+常用方法
+    alert()：警告框
+    confirm()：确认框
+    prompt():输入框
+    timeout setInterval(code,millisec):每隔millisec毫秒执行一次code操作
+    timeout setTimeout(code,millisec)：millisec毫秒后执行1次code操作
+    clearInterval(timeout):取消setInterval的定时操作
+    clearTimeout(timeout):取消setTimeout的定时操作
+
+页面加载函数
+    window.onload = function(){}
+
+注意：
+    Window对象在使用的时候，对象可以省略
+
+5.2 History 对象
+History对象包含用户（在浏览器窗口中）访问过的 URL。
+常用函数
+    back()：加载 history 列表中的前一个URL。
+    forward():加载 history 列表中的下一个 URL。
+    go():加载 history 列表中的任意一个 URL
+
+5.3 Location 对象
+Location 对象包含有关当前 URL 的信息。
+常用属性：
+    href 设置或返回完整的URL
+
+6、DOM对象
+6.1 Document
+    加载的整个页面
+常用函数
+    Element getElementById(id)
+    Element[] getElementsByName(name)
+    Element[] getElementsByTagName(tagName)
+    Element createElement("元素名")：创建元素
+    Node createTextNode("文本")：创建文本
+    Attribute createAttribute("属性名")：创建属性
+    appendChild(元素名)：追加子元素
+    
+
+
+6.2 Element
+    页面上的元素
+常用属性
+    style:获取或设置样式
+    setAttribute:获取或设置属性
+    checked:获取或设置单选框/复选框的选中状态
+    selected:获取或设置下拉列表的选中状态
+
+
+
+    
+    
+
+
+7、事件
+事件绑定方式
+1）静态绑定
+2）动态绑定
+
+常用事件
+1）页面加载
+    onload:页面加载事件
+2）文本事件
+    onblur：失去焦点事件
+    onfocus:获取焦点事件
+    onkeydown:按键按下
+    onkeyup：按键弹起
+    onkeypress：按键按下并弹起
+
+3）按钮事件
+    onclick:单击事件
+    ondbclick:双击事件
+    onsubmit:提交事件
+
+4）鼠标事件
+    onmouseover:鼠标悬停
+    onmouseout：鼠标移出
+    onmousemove：鼠标移动
+    onmousedown：鼠标按键按下
+    onmouseup：鼠标按键弹起
+
+5）域改变事件
+    onchange:域改变事件（下拉列表的列表项内容被改变）
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    
+
+
+
+
+
+

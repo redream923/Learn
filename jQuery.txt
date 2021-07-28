@@ -1,0 +1,283 @@
+﻿1.jQuery
+jQuery 是一个 JavaScript 函数库
+
+2.快速入门
+1)引入jQuery
+    <script type = "text/javascript" src="jquery.js文件路径"></scrip>
+2)$表示什么
+    是一个函数,是jQuery的核心函数
+    $()调用该函数
+
+3.核心函数
+1) $(选择器)
+    获取指定的元素
+    $("div>span")
+2) $(DOM对象)
+    将DOM对象转成jQuery对象.
+    $(document.getElementById("username"));
+3) $(this)
+    获取当前操作的jQuery对象
+4) $(html)
+    创建html元素
+    $("<div>div1<div>")
+5) $(函数)
+    页面加载函数
+    $(fUnction(){})
+
+4.DOM对象和jQuery对象
+JavaScript对象
+DOM对象
+    通过类似getElementById创建的对象
+    通过createElement()创建的对象
+jQuery对象
+    通过jQuery的api创建的对象.
+    通过jQuery的api查询的对象.
+
+jQuery对象的本质
+    DOM对象数组+jQuery提供的JS函数库
+
+DOM对象和jQuery对象的相互转换
+DOM转jQuery
+    $(DOM对象)
+jQuery转DOM
+    jQuery对象[下标]
+    jQuery对象.get(索引)
+
+5.选择器
+1)基本选择器
+    id选择器         $("#id名")
+    类选择器          $(".Class名")
+    元素选择器        $("元素名")
+    所有元素选择器     $("*")
+    组合选择器        $("选择器1,选择器2")
+
+
+2)  层级选择器
+    后代选择器
+        $("div p"):获取div里面所有的p元素
+    子元素选择器
+        $("div>p"):获取div中的所有的p子元素
+    相邻元素选择器
+        $("#d1+span"):获取d1元素后相邻的span元素
+    兄弟元素选择器
+        $("#d1~span"):获取d1元素后的所有span元素
+
+3)  基本过滤选择器
+    :first  获取第一个元素
+    :last   获取最后一个元素
+    :eq(index)  获取指定索引值的元素
+    :gt(index)  获取所有>指定索引的元素
+    :lt(index)  获取所有<指定索引的元素
+    :even(index)    获取所有索引为偶数的元素
+    :odd(index) 获取所有索引为技术的元素
+    :not(selector)  去除所有指定选择器匹配的元素.
+    :header     获取标题元素
+    :animated   获取所有含有动画效果的元素.
+
+4)内容过滤选择器
+    :contains(text) 获取含有指定文本的元素
+    :empty          获取不含任何内容的元素
+    :parent         获取含有任意内容的元素
+    :has(selector)  获取含有指定选择器匹配的所有元素.
+
+5)属性选择器
+    [attribute]     获取含有指定属性的元素
+    [attribute=value]   获取含有指定属性且等于指定值的元素
+    [attribute!=value]  获取含有指定属性且不等于指定值的元素
+    [attribute^=value]  获取属性以指定值开始的元素
+    [attribute$=value]  获取属性以指定值结尾的元素
+    [attribute*=value]  获取属性中包含指定值的元素
+    [attr1][attr2]...   按照多个属性选择器获取对应元素
+
+6)表单过滤选择器
+    :input      获取所有的input,textarea,select,button
+    :text       获取所有单行文本输入框
+    :password   获取所有密码输入框
+    :radio      获取所有单选框
+    :checkbox   获取所有复选框
+    :hidden     获取所有隐藏域
+    :image      获取所有图像域
+    :file       获取所有上传域
+    :submit     获取所有提交按钮
+    :reset      获取所有重置按钮
+    :button     获取所有普通按钮
+
+7)表单对象属性选择器
+    :enable     获取所有可用元素
+    :disable    获取所有不可用元素
+    :checked    获取所有选中的单选按钮,复选按钮
+    :selected   获取所有选中的下拉列表项.
+
+8)可见性选择器
+    :hidden     获取隐藏的元素
+    :visible    获取可见的元素
+
+6,元素筛选函数(功能和选择器类似)
+1)过滤
+    eq(index):获取指定索引处的元素
+    first():    获取第一个元素
+    last():     获取最后一个元素
+    has(exp):获取含有指定选择器匹配的所有元素
+    not(exp):   去除所有指定选择器匹配的元素
+    filter(exp/fun):筛选出指定选择器相匹配的元素
+    is(exp):    判断是否匹配指定选择器,匹配返回true,否则返回false
+2)查找
+    children(exp):  返回匹配指定选择器的子元素           parent>children
+    find(exp):      返回匹配指定选择器的后代元素          ancestor descendant
+    next(exp):      返回匹配指定原则器的下一个兄弟元素       prev+next
+    nextAll(exp):   返回匹配指定原则器的后面所有的兄弟元素    prev~nextAll
+    nextUtil(exp):  返回与指定选择器匹配元素之间的所有兄弟元素
+    prev(exp):      返回匹配指定选择器的上一个兄弟元素.
+    siblings(exp):  返回指定选择器的所有兄弟元素.
+    parent(exp):    返回匹配指定选择器的父元素
+
+3)串联
+    add(exp):       将与指定选择器匹配的元素添加到当前的jQuery
+
+7DOM属性操作
+1)HTML代码/文本/值
+    html():获取或设置元素的标签体内容
+    text():获取或设置元素标签体文本内容
+    val():获取设置元素的value;
+    注意:val还可以设置单选框,复选框,下拉列表的选中项
+    //需求:第1个和第3个复选框被选中.
+    $(":checkbox").val(["v1","v3"]);
+    <input type="checkbox" value="v1"/>
+    <input type="checkbox" value="v2"/>
+    <input type="checkbox" value="v3"/>
+
+2)属性操作
+    attr():获取或设置属性
+    prop():获取或设置属性
+    removeAttr():通过属性名删除属性.
+    removeProp():通过属性名删除属性.
+
+attr和prop区别?
+    如果是操作的是元素的固有属性,建议使用prop
+    如果是操作都是元素的自定义属性,建议使用attr
+
+3)CSS类
+    addClass(class|fn):添加class属性
+    removeClass([class|fn]);删除class属性
+    toggleClass(class|fn[,sw]):如果存在(不存在)就删除(添加)一个类.
+
+8.CSS操作
+1)设置或获取样式
+    css()
+
+2)设置或获取元素的偏移位置.
+    offset()
+
+9.文档处理
+1)插入
+添加子元素
+    append()
+        a.append(b):在a里面的末尾追加b
+    appendTo()
+        b.appendTo(a):将b追加到a里面的末尾.
+    prepend()
+        a.prepend(b):在a里面的最前面追加b
+    prependTo()
+        b.appendTo(a):将b追加到a里面的最前面.
+添加兄弟元素
+    after()
+        a.after(b):在a后面添加b
+    before()
+        a.before(b):在a前面添加b
+    insertAfter():
+        a.insertAfter(b):将a插入b后面
+    insertBefore():
+        a.insertBefore(b):将a插入到b前面.
+
+2)删除
+    remove()
+        a.remove():删除a
+    empty()
+        a.empty():清空a元素内所有元素
+
+3)替换
+    replaceWith()
+        a.replaceWith(b):a用b替换
+    replaceAll()
+        a.replaceAll(b):a替换所有的b
+
+10 动画效果
+基本
+    show():显示元素
+    hide():隐藏元素
+    toggle():显示/隐藏元素
+淡入淡出
+    fadeIn():淡入
+    fadeOUt():淡出
+    fadeTo():修改透明度
+    fadeToggle():淡入/淡出
+
+11 jQuery对象的访问
+1)each:遍历jQuery对象
+格式1:(建议)
+    jQuery对象.each(function(index,domEle){})
+说明:
+    index:元素在集合中的索引
+    domEle:当前遍历的元素
+    this:当前遍历的元素
+    回调函数可以设置返回值,如果返回true(表示continue);如果返回false(表示break)
+
+格式2:
+    $.each(需要遍历的对象,回调函数)
+
+补充:
+遍历jQuery对象还有2中方式
+1)普通for循环
+2)for...of(只适用于jQuery3.0以上版本)
+    for(元素对象 of 容器对象)
+
+12.事件
+1)页面加载
+    $($function(){})
+2)事件处理
+    bind():绑定事件
+    unbind():解绑事件
+    one():绑定的事件只执行一次
+    on():绑定事件,用来替换bind
+    off():解绑事件,用来替换unbind
+3事件切换
+    hover(mouseover,mouseout):鼠标悬停事件和鼠标移出事件的切换
+    toggle(f1,f2,f3...):按照指定的函数给出轮流单击时间的相应
+4)事件冒泡
+    父子元素监听同一个事件,当子元素事件触发的时候,同一个事件也会传递给父元素去相应
+    解决:
+        在子元素的事件相应函数中返回 false
+
+5)事件对象
+如何获取事件对象
+    通过相应函数的参数列表获取 function(event)
+获取事件的字符表示
+    event.type
+获取事件响应时鼠标的坐标
+    event.pageX
+    event.pageY
+
+13.插件机制
+对jQuery中的函数进行扩展
+1)对jQuery对象进行方法扩展
+2)对jQuery全局进行方法扩展
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

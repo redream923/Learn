@@ -1,0 +1,127 @@
+1.XML
+是一种可扩展的标记语言
+作用:
+    1)保存数据(具有描述性)
+    2)用于配置文件
+    3)用于网络传输数据的格式(现在主要使用json格式传输数据)
+
+2.语法
+1)文档声明
+    <?xml version="1.0" encoding="utf-8"?>
+2)注释
+    <!--注释内容-->
+3)元素
+    标签开始到标签结束的所有内容(包含标签)例如<name>张三</name>
+4)命名规则
+    包含字母,数字以及其他字符
+    不能以数字,标点符号开头
+    不能是关键字(xml)
+    不能包含空格
+5)标签类型
+    单标签,例如<id value="123"/>
+    双标签,例如<name>张三</name>
+6)属性
+    和html一样,属性定义在标签上,可以定义多个属性,属性值用""括起来
+7)语法规则
+    所有 XML 元素都须有关闭标签
+    XML 标签对大小写敏感
+    XML 必须正确的嵌套
+    XML 文档必须有根元素
+    XML 的属性值必须加引号
+    特殊字符不可以直接使用
+        &lt;    <   小于
+        &gt;    >   大于
+        &amp    &   和号
+        &apos;  '   单引号
+        &quot;  "   双引号
+
+3.CDATA
+所有XML文档中的文本均会被解析器解析
+只有CDATA区段(CDATA section)中的文本会别解析忽略
+格式
+    <![CDATA[不需要解析的文本]]>
+
+4.XML的约束
+1)DTD约束(简单)
+2)Schema约束(复杂)
+
+*5.DTD约束
+使用步骤
+1)创建DTD约束文件
+2)在xml中引入DTD文件
+    引入本地的DTD:<!DOCTYPE 根元素 SYSTEM "dtd文件路径">
+    引入网络中的DTD:<!DOCTYPE 根元素 PUBLIC "dtd文件路径" "dtd文件URL">
+
+说明
+元素的声明
+    <!ELEMENT 元素名称 (元素内容)>
+        +表示0或多次
+        *表示1或多次
+    <!ELEMENT 元素名称 类别>
+    <!ELEMENT 元素名称 EMPTY>
+属性声明
+    <!ATTLIST 元素名称 属性名称 属性类型 默认值/>
+
+*(面试)6.XML解析
+Java JDK提供了两种解析技术DOM,SAX(已过时,不会使用)
+DOM:将整个xml文档生成一个DOM树
+    好处:操作方便(可以执行增删该查操作)     弊端:内存占用高
+SAX:逐行解析xml数据,以事件驱动
+    好处:不占用内存,在读取下一行数据前会将上一行数据从缓冲区中删掉
+    缺点:只能读取数据
+第三方解析技术
+jdom: 在DOM的基础上进行了封装
+dom4j: 在jdom上进行了封装
+jsoup: 还可以解析url,html文本内容,
+    可以通过DOM,CSS以及类似jQuery的操作方式来操作元素
+
+
+7.jsoup
+1)Jsoup
+    Document parse(File file): 对指定的xml资源解析,生成1个DOM树
+    Document parse(String html)
+    Document parse(URL url)
+
+2)Document
+    Element getElementsById(id):通过id获取元素
+    Elements getElementsByTag(tagName):通过元素名获取元素
+    Elements getElementsByClass(classname):通过类名获取元素
+    Elements getElementsByAttribute(属性名):通过属性名获取元素
+    Elements getElementsByAttributeValue(属性值):通过属性值获取元素.
+3)Elements
+    是ArrayList
+
+4)Element
+获取子元素
+    Element getElementsById(id):通过id获取元素
+    Elements getElementsByTag(tagName):通过元素名获取元素
+    Elements getElementsByClass(classname):通过类名获取元素
+    Elements getElementsByAttribute(属性名):通过属性名获取元素
+    Elements getElementsByAttributeValue(属性值):通过属性值获取元素.
+获取属性
+    String attr(属性名)
+获取文本
+    String text()
+获取html代码
+    String html()
+
+5)快速查询元素
+5.1 选择器获取
+    select(选择器字符串)
+
+5.2 XPath方式获取
+    XPath 是一门在 XML 文档中查找信息的语言。
+    XPath 可用来在 XML 文档中对元素和属性进行遍历。
+在jsoup中使用xpath查找需要倒数JsoupXpath-0.3.2.jar
+selN(String xpath):通过xpath查询元素
+
+
+
+
+
+
+
+
+
+
+
